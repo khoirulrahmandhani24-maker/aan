@@ -4,70 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portofolio pribadi Khoirul Rahmandhani, pelajar Rekayasa Perangkat Lunak.">
     <title>Beranda | Khoirul Rahmandhani</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
+<header class="header">
     <nav class="navbar">
-        <a href="index.html" class="logo">KHOIRUL<span>.</span></a>
+        <a href="index.html" class="logo">Portfolio<span>.</span></a>
 
-        <div class="nav-actions">
-            <button class="theme-toggle" id="themeToggle"
-                aria-label="Ganti tema">🌙</button>
-            <button class="menu-toggle" id="menuToggle"
-                aria-label="Buka menu">☰</button>
-        </div>
+        <button class="menu-toggle" id="menuToggle">☰</button>
 
         <ul class="nav-menu" id="navMenu">
             <li><a href="index.html" class="active">Beranda</a></li>
             <li><a href="keahlian.html">Keahlian</a></li>
+            <li><a href="rumus.html">Rumus Otomotif</a></li>
             <li><a href="kontak.html">Kontak</a></li>
         </ul>
+
+        <button class="theme-toggle" id="themeToggle">☀ / ☾</button>
     </nav>
 </header>
 
-<main class="hero">
+<main>
+    <section class="hero container">
+        <div class="hero-content">
+            <p class="subtitle">HALO, SELAMAT DATANG</p>
 
-    <div class="hero-content">
-        <p class="intro">HALO, SELAMAT DATANG DI PORTOFOLIO SAYA</p>
+            <h1>Saya <span>Khoirul Rahmandhani</span></h1>
 
-        <h1>
-            Saya <span>Khoirul</span><br>
-            Rahmandhani
-        </h1>
+            <h2>Pelajar Rekayasa Perangkat Lunak</h2>
 
-        <h2>Pelajar Rekayasa Perangkat Lunak</h2>
+            <p class="description">
+                Saya merupakan pelajar jurusan Rekayasa Perangkat Lunak
+                yang memiliki ketertarikan dalam bidang teknologi,
+                pemrograman, pengembangan website, dan dunia otomotif.
+                Website ini merupakan tempat untuk menampilkan profil,
+                keahlian, serta beberapa rumus mekanik otomotif.
+            </p>
 
-        <p class="description">
-            Saya adalah pelajar jurusan Rekayasa Perangkat Lunak
-            yang memiliki ketertarikan dalam dunia teknologi,
-            pemrograman, dan pengembangan website.
-            Saya senang mempelajari hal baru serta
-            mengembangkan kemampuan di bidang teknologi.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="keahlian.html" class="btn primary">
-                Lihat Keahlian
-            </a>
-
-            <a href="kontak.html" class="btn secondary">
-                Hubungi Saya
-            </a>
+            <div class="hero-buttons">
+                <a href="keahlian.html" class="btn primary">Lihat Keahlian</a>
+                <a href="kontak.html" class="btn secondary">Hubungi Saya</a>
+            </div>
         </div>
-    </div>
 
-    <div class="hero-image">
-        <img src="foto-profil.jpg" alt="Foto Khoirul Rahmandhani">
-    </div>
+        <div class="hero-image">
+            <img src="foto-profil.jpg" alt="Foto Khoirul Rahmandhani">
+        </div>
+    </section>
 
+    <section class="container info-section">
+        <h2 class="section-title">Tentang Website</h2>
+
+        <div class="card-grid">
+            <div class="card">
+                <h3>Profil</h3>
+                <p>Informasi singkat tentang diri dan pendidikan saya.</p>
+            </div>
+
+            <div class="card">
+                <h3>Keahlian</h3>
+                <p>Kemampuan dan keterampilan dalam bidang pemrograman.</p>
+            </div>
+
+            <div class="card">
+                <h3>Otomotif</h3>
+                <p>Kumpulan rumus untuk menghitung spesifikasi mesin motor.</p>
+            </div>
+        </div>
+    </section>
 </main>
 
-<footer>
-    <p>© <span class="year"></span> Khoirul Rahmandhani. All Rights Reserved.</p>
+<footer class="footer">
+    <p>© <span id="year"></span> Khoirul Rahmandhani. All Rights Reserved.</p>
 </footer>
 
 <script src="script.js"></script>
