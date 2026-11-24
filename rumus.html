@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rumus Otomotif | Khoirul Rahmandhani</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar">
+        <a href="index.html" class="logo">Portfolio<span>.</span></a>
+
+        <button class="menu-toggle" id="menuToggle">☰</button>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="keahlian.html">Keahlian</a></li>
+            <li><a href="rumus.html" class="active">Rumus Otomotif</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+
+        <button class="theme-toggle" id="themeToggle">☀ / ☾</button>
+    </nav>
+</header>
+
+<main class="container page-content">
+
+    <section class="page-heading">
+        <p class="subtitle">MEKANIK SEPEDA MOTOR</p>
+        <h1>Rumus <span>Mekanik Otomotif</span></h1>
+        <p>
+            Kalkulator sederhana untuk menghitung kapasitas mesin,
+            volume langkah piston, dan rasio kompresi motor.
+        </p>
+    </section>
+
+    <section class="calculator-grid">
+
+        <!-- KALKULATOR CC -->
+        <div class="calculator card">
+            <div class="card-icon">🏍️</div>
+            <h2>Menghitung CC Motor</h2>
+            <p>
+                Menghitung kapasitas mesin berdasarkan diameter
+                piston, langkah piston, dan jumlah silinder.
+            </p>
+
+            <label for="bore">Diameter Piston / Bore (mm)</label>
+            <input type="number" id="bore" placeholder="Contoh: 63.5" min="0" step="any">
+
+            <label for="stroke">Langkah Piston / Stroke (mm)</label>
+            <input type="number" id="stroke" placeholder="Contoh: 58.7" min="0" step="any">
+
+            <label for="silinder">Jumlah Silinder</label>
+            <input type="number" id="silinder" value="1" min="1" step="1">
+
+            <button class="btn primary full-btn" onclick="hitungCC()">
+                Hitung Kapasitas CC
+            </button>
+
+            <div class="result" id="hasilCC" aria-live="polite">
+                Hasil perhitungan akan muncul di sini.
+            </div>
+
+            <button class="btn secondary full-btn" onclick="resetCC()">
+                Reset
+            </button>
+        </div>
+
+        <!-- KALKULATOR KOMPRESI -->
+        <div class="calculator card">
+            <div class="card-icon">⚙️</div>
+            <h2>Menghitung Kompresi</h2>
+            <p>
+                Menghitung rasio kompresi berdasarkan volume
+                langkah piston dan volume ruang bakar.
+            </p>
+
+            <label for="vs">Volume Langkah / Vs (CC)</label>
+            <input type="number" id="vs" placeholder="Contoh: 150" min="0" step="any">
+
+            <label for="vc">Volume Ruang Bakar / Vc (CC)</label>
+            <input type="number" id="vc" placeholder="Contoh: 15" min="0" step="any">
+
+            <button class="btn primary full-btn" onclick="hitungKompresi()">
+                Hitung Kompresi
+            </button>
+
+            <div class="result" id="hasilKompresi" aria-live="polite">
+                Hasil perhitungan akan muncul di sini.
+            </div>
+
+            <button class="btn secondary full-btn" onclick="resetKompresi()">
+                Reset
+            </button>
+        </div>
+
+        <!-- KALKULATOR VOLUME LANGKAH -->
+        <div class="calculator card">
+            <div class="card-icon">🔧</div>
+            <h2>Menghitung Volume Langkah</h2>
+            <p>
+                Menghitung volume langkah piston dari ukuran
+                bore dan stroke.
+            </p>
+
+            <label for="boreVs">Diameter Piston / Bore (mm)</label>
+            <input type="number" id="boreVs" placeholder="Contoh: 63.5" min="0" step="any">
+
+            <label for="strokeVs">Langkah Piston / Stroke (mm)</label>
+            <input type="number" id="strokeVs" placeholder="Contoh: 58.7" min="0" step="any">
+
+            <button class="btn primary full-btn" onclick="hitungVs()">
+                Hitung Volume Langkah
+            </button>
+
+            <div class="result" id="hasilVs" aria-live="polite">
+                Hasil perhitungan akan muncul di sini.
+            </div>
+
+            <button class="btn secondary full-btn" onclick="resetVs()">
+                Reset
+            </button>
+        </div>
+
+    </section>
+
+    <!-- PENJELASAN RUMUS -->
+    <section class="card formula-section">
+        <h2>Penjelasan Rumus Otomotif</h2>
+
+        <div class="formula-item">
+            <h3>1. Rumus Menghitung CC Motor</h3>
+            <div class="formula-code">
+                CC = (π / 4) × Bore² × Stroke × Jumlah Silinder / 1000
+            </div>
+            <p>
+                Bore adalah diameter piston dalam milimeter.
+                Stroke adalah jarak gerak piston dari TMA ke TMB.
+                Hasil perhitungan menunjukkan kapasitas mesin dalam CC.
+            </p>
+        </div>
+
+        <div class="formula-item">
+            <h3>2. Rumus Rasio Kompresi</h3>
+            <div class="formula-code">
+                Rasio Kompresi = (Vs + Vc) / Vc
+            </div>
+            <p>
+                Vs adalah volume langkah piston, sedangkan Vc adalah
+                volume ruang bakar saat piston berada di TMA.
+                Hasil ditampilkan dalam perbandingan, misalnya 11 : 1.
+            </p>
+        </div>
+
+        <div class="formula-item">
+            <h3>3. Rumus Volume Langkah</h3>
+            <div class="formula-code">
+                Vs = (π / 4) × Bore² × Stroke / 1000
+            </div>
+            <p>
+                Volume langkah merupakan volume yang disapu piston
+                ketika bergerak dari Titik Mati Atas (TMA) menuju
+                Titik Mati Bawah (TMB).
+            </p>
+        </div>
+    </section>
+
+    <section class="card formula-section">
+        <h2>Contoh Perhitungan</h2>
+
+        <h3>Contoh menghitung CC</h3>
+        <p>
+            Bore = 63,5 mm, Stroke = 58,7 mm, dan jumlah silinder = 1.
+        </p>
+        <p>
+            Hasil kapasitas mesin sekitar <strong>185,96 CC</strong>.
+        </p>
+
+        <h3>Contoh menghitung kompresi</h3>
+        <p>
+            Volume langkah = 150 CC dan volume ruang bakar = 15 CC.
+        </p>
+        <p>
+            (150 + 15) / 15 = <strong>11 : 1</strong>.
+        </p>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>© <span id="year"></span> Khoirul Rahmandhani. All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+function angkaValid(id) {
+    return Number(document.getElementById(id).value);
+}
+
+function hitungCC() {
+    const bore = angkaValid("bore");
+    const stroke = angkaValid("stroke");
+    const silinder = angkaValid("silinder");
+    const hasil = document.getElementById("hasilCC");
+
+    if (
+        !Number.isFinite(bore) || bore <= 0 ||
+        !Number.isFinite(stroke) || stroke <= 0 ||
+        !Number.isInteger(silinder) || silinder <= 0
+    ) {
+        hasil.textContent = "Masukkan semua data dengan benar.";
+        return;
+    }
+
+    const cc = (Math.PI / 4) * bore * bore * stroke * silinder / 1000;
+
+    hasil.innerHTML =
+        "Kapasitas Mesin: <strong>" + cc.toFixed(2) + " CC</strong>";
+}
+
+function hitungKompresi() {
+    const vs = angkaValid("vs");
+    const vc = angkaValid("vc");
+    const hasil = document.getElementById("hasilKompresi");
+
+    if (
+        !Number.isFinite(vs) || vs <= 0 ||
+        !Number.isFinite(vc) || vc <= 0
+    ) {
+        hasil.textContent = "Masukkan volume dengan benar.";
+        return;
+    }
+
+    const kompresi = (vs + vc) / vc;
+
+    hasil.innerHTML =
+        "Rasio Kompresi: <strong>" +
+        kompresi.toFixed(2) + " : 1</strong>";
+}
+
+function hitungVs() {
+    const bore = angkaValid("boreVs");
+    const stroke = angkaValid("strokeVs");
+    const hasil = document.getElementById("hasilVs");
+
+    if (
+        !Number.isFinite(bore) || bore <= 0 ||
+        !Number.isFinite(stroke) || stroke <= 0
+    ) {
+        hasil.textContent = "Masukkan ukuran dengan benar.";
+        return;
+    }
+
+    const vs = (Math.PI / 4) * bore * bore * stroke / 1000;
+
+    hasil.innerHTML =
+        "Volume Langkah: <strong>" + vs.toFixed(2) + " CC</strong>";
+}
+
+function resetCC() {
+    document.getElementById("bore").value = "";
+    document.getElementById("stroke").value = "";
+    document.getElementById("silinder").value = "1";
+    document.getElementById("hasilCC").textContent =
+        "Hasil perhitungan akan muncul di sini.";
+}
+
+function resetKompresi() {
+    document.getElementById("vs").value = "";
+    document.getElementById("vc").value = "";
+    document.getElementById("hasilKompresi").textContent =
+        "Hasil perhitungan akan muncul di sini.";
+}
+
+function resetVs() {
+    document.getElementById("boreVs").value = "";
+    document.getElementById("strokeVs").value = "";
+    document.getElementById("hasilVs").textContent =
+        "Hasil perhitungan akan muncul di sini.";
+}
+</script>
+
+</body>
+</html>
