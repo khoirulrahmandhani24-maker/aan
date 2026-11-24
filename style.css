@@ -1,8 +1,15 @@
 
+/* =================================
+   1. PENGATURAN DASAR DAN TEMA
+================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
@@ -10,16 +17,34 @@
     --bg: #080d18;
     --card: #101a2d;
     --blue: #168cff;
-    --light-blue: #53b5ff;
+    --light: #53b5ff;
     --white: #ffffff;
     --gray: #a6b2c5;
+    --header: rgba(8, 13, 24, 0.96);
+    --footer: #050912;
+    --border: #1b3453;
+    --section: #0b1424;
+}
+
+body.light-mode {
+    --bg: #f3f7fc;
+    --card: #ffffff;
+    --blue: #0878df;
+    --light: #0869c2;
+    --white: #172438;
+    --gray: #526176;
+    --header: rgba(255, 255, 255, 0.96);
+    --footer: #e5edf7;
+    --border: #d5e0ed;
+    --section: #eaf1fa;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, sans-serif;
     background: var(--bg);
     color: var(--white);
-    overflow-x: hidden;
+    min-height: 100vh;
+    transition: background .3s, color .3s;
 }
 
 a {
@@ -27,22 +52,27 @@ a {
     color: inherit;
 }
 
-/* NAVBAR */
+button {
+    font-family: inherit;
+}
+
+/* =================================
+   2. NAVBAR
+================================= */
 
 header {
-    position: fixed;
+    background: var(--header);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
     top: 0;
-    width: 100%;
     z-index: 1000;
-    background: rgba(8, 13, 24, 0.92);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(22, 140, 255, 0.15);
 }
 
 .navbar {
-    max-width: 1200px;
+    max-width: 1150px;
     margin: auto;
-    padding: 20px 30px;
+    padding: 18px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,6 +82,7 @@ header {
     font-size: 25px;
     font-weight: 800;
     letter-spacing: 1px;
+    color: var(--white);
 }
 
 .logo span {
@@ -60,6 +91,7 @@ header {
 
 .nav-menu {
     display: flex;
+    align-items: center;
     gap: 30px;
     list-style: none;
 }
@@ -67,72 +99,90 @@ header {
 .nav-menu a {
     color: var(--gray);
     font-size: 14px;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .nav-menu a:hover,
 .nav-menu a.active {
-    color: var(--light-blue);
+    color: var(--light);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.theme-toggle,
+.menu-toggle {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--card);
+    color: var(--white);
+    font-size: 19px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.theme-toggle:hover,
+.menu-toggle:hover {
+    background: var(--blue);
+    transform: translateY(-2px);
 }
 
 .menu-toggle {
     display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 27px;
-    cursor: pointer;
 }
 
-/* HERO */
+/* =================================
+   3. HALAMAN BERANDA
+================================= */
 
 .hero {
-    min-height: 100vh;
-    max-width: 1200px;
+    max-width: 1150px;
+    min-height: 85vh;
     margin: auto;
-    padding: 130px 30px 70px;
+    padding: 70px 25px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 50px;
+    align-items: center;
+    gap: 40px;
 }
 
 .hero-content {
     max-width: 650px;
+    animation: slideLeft .8s ease;
 }
 
 .intro {
-    color: var(--light-blue);
-    font-size: 13px;
+    color: var(--light);
+    font-size: 12px;
     letter-spacing: 3px;
     margin-bottom: 20px;
 }
 
 .hero h1 {
-    font-size: clamp(40px, 6vw, 68px);
+    font-size: clamp(40px, 6vw, 65px);
     line-height: 1.2;
-    font-weight: 800;
+    margin-bottom: 20px;
 }
 
-.hero h1 span,
-.section-title h2 span {
+.hero h1 span {
     color: var(--blue);
 }
 
 .hero h2 {
     font-size: 20px;
-    margin: 18px 0;
-}
-
-.hero h2 span {
-    color: var(--light-blue);
+    color: var(--light);
+    margin-bottom: 20px;
 }
 
 .description {
     color: var(--gray);
     line-height: 1.9;
-    font-size: 14px;
-    max-width: 580px;
+    font-size: 15px;
 }
 
 .hero-buttons {
@@ -143,42 +193,37 @@ header {
 }
 
 .btn {
-    padding: 13px 25px;
+    display: inline-block;
+    padding: 13px 23px;
     border-radius: 7px;
-    font-size: 13px;
-    font-weight: 600;
-    transition: 0.3s;
+    font-size: 14px;
+    transition: .3s;
 }
 
 .primary {
     background: var(--blue);
-    color: white;
+    color: #ffffff;
 }
 
 .secondary {
     border: 1px solid var(--blue);
-    color: var(--light-blue);
+    color: var(--light);
 }
 
 .btn:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(22, 140, 255, 0.25);
+    box-shadow: 0 5px 20px #168cff33;
 }
 
 .hero-image {
-    width: 340px;
-    height: 400px;
+    width: 320px;
+    height: 380px;
     flex-shrink: 0;
     border: 3px solid var(--blue);
     border-radius: 25px;
     overflow: hidden;
-    box-shadow: 0 0 45px rgba(22, 140, 255, 0.2);
-    transform: rotate(3deg);
-    transition: 0.4s;
-}
-
-.hero-image:hover {
-    transform: rotate(0deg) scale(1.03);
+    box-shadow: 0 0 35px #168cff44;
+    animation: slideRight .8s ease;
 }
 
 .hero-image img {
@@ -187,109 +232,66 @@ header {
     object-fit: cover;
 }
 
-/* SECTION */
+/* =================================
+   4. HALAMAN KEAHLIAN DAN KONTAK
+================================= */
 
-.section {
-    padding: 100px 30px;
-    max-width: 1200px;
+.page-container {
+    max-width: 1150px;
+    min-height: 78vh;
     margin: auto;
+    padding: 75px 25px;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 55px;
+    margin-bottom: 50px;
 }
 
-.section-title p {
-    color: var(--light-blue);
+.section-title > p:first-child {
+    color: var(--light);
     letter-spacing: 3px;
     font-size: 12px;
+    margin-bottom: 18px;
 }
 
-.section-title h2 {
-    font-size: 38px;
-    margin-top: 10px;
-}
-
-/* ABOUT */
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 30px;
-}
-
-.about-card,
-.info-box {
-    background: var(--card);
-    border: 1px solid rgba(22, 140, 255, 0.15);
-    border-radius: 15px;
-    padding: 30px;
-}
-
-.about-card h3 {
-    color: var(--light-blue);
-    margin-bottom: 20px;
-}
-
-.about-card p {
-    color: var(--gray);
-    line-height: 1.9;
-    font-size: 14px;
+.section-title h1 {
+    font-size: 42px;
     margin-bottom: 15px;
 }
 
-.about-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+.section-title h1 span {
+    color: var(--blue);
 }
 
-.info-box {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.info-box h3 {
-    color: var(--light-blue);
-    font-size: 22px;
-}
-
-.info-box p {
+.subtitle {
     color: var(--gray);
-    font-size: 12px;
-    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.8;
 }
 
-/* SKILLS */
-
-.skills {
-    max-width: 100%;
-    background: #0b1220;
-}
+/* =================================
+   5. KARTU KEAHLIAN
+================================= */
 
 .skills-container {
-    max-width: 1140px;
-    margin: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 22px;
 }
 
 .skill-card {
     background: var(--card);
+    border: 1px solid var(--border);
     padding: 30px;
     border-radius: 15px;
-    border: 1px solid rgba(22, 140, 255, 0.15);
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .skill-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     border-color: var(--blue);
-    box-shadow: 0 10px 30px rgba(22, 140, 255, 0.12);
+    box-shadow: 0 10px 25px #168cff22;
 }
 
 .skill-icon {
@@ -298,164 +300,133 @@ header {
 }
 
 .skill-card h3 {
+    color: var(--light);
     margin-bottom: 12px;
-    color: var(--light-blue);
+    font-size: 20px;
 }
 
 .skill-card p {
-    font-size: 13px;
     color: var(--gray);
     line-height: 1.8;
-}
-
-/* PROJECTS */
-
-.projects-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.project-card {
-    background: var(--card);
-    border-radius: 15px;
-    overflow: hidden;
-    border: 1px solid rgba(22, 140, 255, 0.15);
-    transition: 0.3s;
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--blue);
-}
-
-.project-image {
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #10294b, #0876cf);
-}
-
-.project-image span {
-    font-size: 60px;
-    font-weight: 800;
-    color: rgba(255,255,255,0.8);
-}
-
-.project-two {
-    background: linear-gradient(135deg, #15263c, #124c86);
-}
-
-.project-three {
-    background: linear-gradient(135deg, #0c315b, #168cff);
-}
-
-.project-info {
-    padding: 25px;
-}
-
-.project-info h3 {
-    color: var(--light-blue);
-    margin-bottom: 12px;
-}
-
-.project-info p {
-    font-size: 13px;
-    color: var(--gray);
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-.project-tech {
-    font-size: 11px;
-    color: var(--blue);
-}
-
-/* CONTACT */
-
-.contact {
-    text-align: center;
-}
-
-.contact-content {
-    max-width: 700px;
-    margin: auto;
-}
-
-.contact-content p {
-    color: var(--gray);
-    line-height: 1.9;
     font-size: 14px;
 }
 
-.contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 30px;
+/* =================================
+   6. KARTU KONTAK
+================================= */
+
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.contact-links a {
-    padding: 12px 22px;
+.contact-card {
+    text-align: center;
     background: var(--card);
-    border: 1px solid var(--blue);
-    border-radius: 8px;
-    color: var(--light-blue);
+    border: 1px solid var(--border);
+    padding: 30px 15px;
+    border-radius: 15px;
+    color: var(--white);
+    transition: .3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--blue);
+    box-shadow: 0 10px 25px #168cff22;
+}
+
+.contact-icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    color: var(--light);
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    color: var(--gray);
     font-size: 13px;
-    transition: 0.3s;
+    overflow-wrap: anywhere;
 }
 
-.contact-links a:hover {
-    background: var(--blue);
-    color: white;
-    transform: translateY(-5px);
+.contact-message {
+    margin-top: 35px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    background: var(--card);
+    border: 1px solid var(--border);
 }
 
-/* FOOTER */
+.contact-message h2 {
+    color: var(--light);
+    margin-bottom: 12px;
+}
+
+.contact-message p {
+    color: var(--gray);
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.bottom-button {
+    text-align: center;
+    margin-top: 35px;
+}
+
+/* =================================
+   7. FOOTER
+================================= */
 
 footer {
-    padding: 25px 30px;
-    background: #050912;
-    border-top: 1px solid rgba(22, 140, 255, 0.15);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-footer p,
-footer a {
+    background: var(--footer);
+    padding: 25px;
+    text-align: center;
     color: var(--gray);
-    font-size: 12px;
+    font-size: 13px;
+    border-top: 1px solid var(--border);
 }
 
-footer a:hover {
-    color: var(--light-blue);
+/* =================================
+   8. ANIMASI
+================================= */
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-/* ANIMATION */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(35px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* RESPONSIVE */
+/* =================================
+   9. RESPONSIVE TABLET
+================================= */
 
 @media (max-width: 850px) {
+
     .hero {
         flex-direction: column-reverse;
         text-align: center;
-        padding-top: 120px;
+        padding-top: 55px;
     }
 
     .hero-image {
@@ -467,26 +438,20 @@ footer a:hover {
         justify-content: center;
     }
 
-    .description {
-        margin: auto;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    .skills-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .projects-container {
+    .skills-container,
+    .contact-container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
+/* =================================
+   10. RESPONSIVE HP
+================================= */
+
 @media (max-width: 600px) {
+
     .navbar {
-        padding: 17px 20px;
+        padding: 15px 20px;
     }
 
     .menu-toggle {
@@ -494,16 +459,17 @@ footer a:hover {
     }
 
     .nav-menu {
+        display: none;
         position: absolute;
-        top: 65px;
+        top: 70px;
         left: 0;
         width: 100%;
-        background: #0c1525;
         flex-direction: column;
         align-items: center;
         gap: 0;
-        display: none;
-        padding: 15px 0;
+        padding: 10px;
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
     }
 
     .nav-menu.active {
@@ -511,41 +477,40 @@ footer a:hover {
     }
 
     .nav-menu li {
-        padding: 13px;
+        padding: 15px;
     }
 
     .hero {
-        padding: 110px 20px 60px;
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
     }
 
     .hero h2 {
-        font-size: 16px;
+        font-size: 17px;
     }
 
-    .intro {
-        font-size: 10px;
-        letter-spacing: 2px;
+    .hero-image {
+        width: 230px;
+        height: 270px;
     }
 
-    .section {
-        padding: 75px 20px;
+    .page-container {
+        padding: 55px 20px;
     }
 
-    .section-title h2 {
-        font-size: 30px;
+    .section-title h1 {
+        font-size: 34px;
     }
 
     .skills-container,
-    .projects-container {
+    .contact-container {
         grid-template-columns: 1fr;
     }
 
-    .about-info {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    footer {
-        flex-direction: column;
-        text-align: center;
+    .hero-buttons {
+        gap: 10px;
     }
 }
