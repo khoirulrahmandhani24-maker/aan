@@ -4,110 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Keahlian pemrograman Khoirul Rahmandhani.">
     <title>Keahlian | Khoirul Rahmandhani</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
+<header class="header">
     <nav class="navbar">
-        <a href="index.html" class="logo">KHOIRUL<span>.</span></a>
+        <a href="index.html" class="logo">Portfolio<span>.</span></a>
 
-        <div class="nav-actions">
-            <button class="theme-toggle" id="themeToggle"
-                aria-label="Ganti tema">🌙</button>
-            <button class="menu-toggle" id="menuToggle"
-                aria-label="Buka menu">☰</button>
-        </div>
+        <button class="menu-toggle" id="menuToggle">☰</button>
 
         <ul class="nav-menu" id="navMenu">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="keahlian.html" class="active">Keahlian</a></li>
+            <li><a href="rumus.html">Rumus Otomotif</a></li>
             <li><a href="kontak.html">Kontak</a></li>
         </ul>
+
+        <button class="theme-toggle" id="themeToggle">☀ / ☾</button>
     </nav>
 </header>
 
-<main class="page-container">
+<main class="container page-content">
+    <section class="page-heading">
+        <p class="subtitle">KEMAMPUAN SAYA</p>
+        <h1>Keahlian <span>Teknologi</span></h1>
+        <p>Beberapa kemampuan yang saya pelajari dalam jurusan RPL.</p>
+    </section>
 
-    <div class="section-title">
-        <p>KEMAMPUAN SAYA</p>
-        <h1>My <span>Skills</span></h1>
-        <p class="subtitle">
-            Beberapa kemampuan yang saya pelajari
-            dalam bidang Rekayasa Perangkat Lunak.
-        </p>
-    </div>
-
-    <div class="skills-container">
-
-        <div class="skill-card">
-            <div class="skill-icon">🌐</div>
+    <section class="card-grid">
+        <div class="card">
+            <div class="card-icon">🌐</div>
             <h3>HTML</h3>
-            <p>
-                Membuat struktur halaman website
-                menggunakan bahasa HTML.
-            </p>
+            <p>Membuat struktur halaman website menggunakan HTML.</p>
         </div>
 
-        <div class="skill-card">
-            <div class="skill-icon">🎨</div>
+        <div class="card">
+            <div class="card-icon">🎨</div>
             <h3>CSS</h3>
-            <p>
-                Mendesain tampilan website agar
-                menarik, rapi, dan responsif.
-            </p>
+            <p>Mengatur tampilan, warna, layout, dan responsivitas website.</p>
         </div>
 
-        <div class="skill-card">
-            <div class="skill-icon">⚡</div>
+        <div class="card">
+            <div class="card-icon">⚡</div>
             <h3>JavaScript</h3>
-            <p>
-                Membuat website lebih interaktif
-                dengan berbagai fungsi dan animasi.
-            </p>
+            <p>Membuat website menjadi lebih interaktif dan dinamis.</p>
         </div>
 
-        <div class="skill-card">
-            <div class="skill-icon">💻</div>
+        <div class="card">
+            <div class="card-icon">💻</div>
             <h3>C#</h3>
-            <p>
-                Mempelajari pemrograman aplikasi
-                desktop menggunakan C#.
-            </p>
+            <p>Mempelajari pemrograman berorientasi objek dan aplikasi desktop.</p>
         </div>
 
-        <div class="skill-card">
-            <div class="skill-icon">🗄️</div>
+        <div class="card">
+            <div class="card-icon">🗄️</div>
             <h3>Database</h3>
-            <p>
-                Mengelola dan menyimpan data
-                menggunakan MySQL dan SQL Server.
-            </p>
+            <p>Mengelola data menggunakan MySQL dan SQL Server.</p>
         </div>
 
-        <div class="skill-card">
-            <div class="skill-icon">🖥️</div>
+        <div class="card">
+            <div class="card-icon">🐘</div>
             <h3>PHP</h3>
-            <p>
-                Membuat website dinamis
-                menggunakan bahasa pemrograman PHP.
-            </p>
+            <p>Membuat website dinamis dengan pemrograman PHP.</p>
         </div>
-
-    </div>
-
-    <div class="bottom-button">
-        <a href="kontak.html" class="btn primary">
-            Hubungi Saya
-        </a>
-    </div>
-
+    </section>
 </main>
 
-<footer>
-    <p>© <span class="year"></span> Khoirul Rahmandhani. All Rights Reserved.</p>
+<footer class="footer">
+    <p>© <span id="year"></span> Khoirul Rahmandhani. All Rights Reserved.</p>
 </footer>
 
 <script src="script.js"></script>
